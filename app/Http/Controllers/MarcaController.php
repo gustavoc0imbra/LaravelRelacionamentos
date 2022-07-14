@@ -14,7 +14,9 @@ class MarcaController extends Controller
      */
     public function lista()
     {
-        //
+        $marcas = Marca::with('modelos')->get();
+
+        return view('site.lista', ['marcas' => $marcas]);
     }
 
     /**
@@ -33,7 +35,7 @@ class MarcaController extends Controller
 
         $marca = Marca::create($input);
 
-        return redirect()->route('site.index');
+        return redirect()->route('site.lista');
 
     }
 
@@ -56,7 +58,8 @@ class MarcaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $marca = Marca::find($id);
+        return view('site.editView', ['marca' => $marca]);
     }
 
     /**
@@ -68,17 +71,23 @@ class MarcaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->validate([
+            'nome' => 'string|required|max:80',
+            'pais' => 'string|nullable',
+            'ano' => 'string|required|max:4',
+        ]);
+
+        $marca = Marca::find($id);
+        $marca->update($input);
+        return redirect()->route('site.lista');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $marca = Marca::find($id);
+
+        $marca->delete();
+
+        return redirect()->route('site.lista'); 
     }
 }

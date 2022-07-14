@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('marcas', function (Blueprint $table) {
+        Schema::create('modelos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('marca_id')->constrained();
             $table->string('nome');
-            $table->string('pais');
             $table->string('ano');
+            $table->string('combustivel');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('marcas');
+        Schema::dropIfExists('modelos');
     }
 };
