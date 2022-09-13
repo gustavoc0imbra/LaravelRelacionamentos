@@ -16,7 +16,10 @@
     </ul>
     @yield('content')
     <footer>
-        <p>Projeto de CRUD básico para testar os relacionamentos do Eloquent ORM</p>
+        <div style="text-align: center;">
+            <p>Projeto de CRUD básico para testar os relacionamentos do Eloquent ORM</p>
+        </div>
+
     </footer>
 </body>
 </html>

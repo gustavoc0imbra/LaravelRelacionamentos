@@ -14,7 +14,7 @@ class Modelo extends Model
         'nome',
         'marca_id',
         'ano',
-        'combustivel'
+        'combustivel',
     ];
 
     public function marca(){

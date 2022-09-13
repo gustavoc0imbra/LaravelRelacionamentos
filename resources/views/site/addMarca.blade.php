@@ -6,7 +6,7 @@
 
 @section('content')
     <center>
-        <form action="{{ route('site.addMarca') }}" method="POST">
+        <form enctype="multpart/form-data" action="{{ route('site.addMarca') }}" method="POST">
             @csrf
             <input type="text" name="nome" id="" placeholder="Insira o nome da marca">
             @error('nome')

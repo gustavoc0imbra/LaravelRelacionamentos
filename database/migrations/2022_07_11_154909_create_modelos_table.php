@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('modelos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('marca_id')->constrained();
+            $table->foreignId('marca_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->string('nome');
             $table->string('ano');
             $table->string('combustivel');

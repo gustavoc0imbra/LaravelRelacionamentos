@@ -17,7 +17,9 @@ class MarcaFactory extends Factory
     public function definition()
     {
         return [
-            ''
+            'nome' => fake()->sentence(),
+            'pais' => fake()->countrycode(),
+            'ano' => fake()->year(),
         ];
     }
 }

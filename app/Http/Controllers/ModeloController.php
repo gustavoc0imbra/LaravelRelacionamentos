@@ -23,7 +23,7 @@ class ModeloController extends Controller
          'combustivel' => 'string|required',
         ]);
 
-        //dd($input);
+        dd($input);
 
         //$marca->modelos()->create($input);
         $modelo->create($input);
